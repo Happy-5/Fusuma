@@ -81,24 +81,26 @@ final class FSImageCropView: UIScrollView, UIScrollViewDelegate {
                     
                     // Width > Height
                     
-                    let ratio = self.frame.height / imageSize.height
-                    
-                    imageView.frame = CGRect(
-                        origin: CGPointZero,
-                        size: CGSize(width: imageSize.width * ratio, height: self.frame.height)
-                    )
-                    
+//                    let ratio = self.frame.height / imageSize.height
+//                    
+//                    imageView.frame = CGRect(
+//                        origin: CGPointZero,
+//                        size: CGSize(width: imageSize.width * ratio, height: self.frame.height)
+//                    )
+                    imageView.frame = self.frame
+                    imageView.contentMode = .ScaleAspectFit
                 } else {
                     
                     // Width <= Height
 
-                    let ratio = self.frame.width / imageSize.width
-                    
-                    imageView.frame = CGRect(
-                        origin: CGPointZero,
-                        size: CGSize(width: self.frame.width, height: imageSize.height * ratio)
-                    )
-                    
+//                    let ratio = self.frame.width / imageSize.width
+//                    
+//                    imageView.frame = CGRect(
+//                        origin: CGPointZero,
+//                        size: CGSize(width: self.frame.width, height: imageSize.height * ratio)
+//                    )
+                    imageView.frame = self.frame
+                    imageView.contentMode = .ScaleAspectFit
                 }
                 
                 self.contentOffset = CGPoint(
@@ -128,8 +130,8 @@ final class FSImageCropView: UIScrollView, UIScrollViewDelegate {
         
         imageView.frame = CGRect(origin: CGPointZero, size: CGSizeZero)
         
-        self.maximumZoomScale = 2.0
-        self.minimumZoomScale = 0.8
+        self.maximumZoomScale = 3.0
+        self.minimumZoomScale = 1.0
         self.showsHorizontalScrollIndicator = false
         self.showsVerticalScrollIndicator   = false
         self.bouncesZoom = true
